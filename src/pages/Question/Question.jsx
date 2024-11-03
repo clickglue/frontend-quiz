@@ -1,8 +1,18 @@
-import styles from './Question.module.css';
+import styles from "./Question.module.css";
 import ButtonComp from "../../components/Button/ButtonComp";
 import HeaderComp from "../../components/Header/HeaderComp";
+import ProgressBarComp from "../../components/ProgressBar/ProgressBarComp";
+import OptionComp from "../../components/Option/OptionComp";
 
-function Question({ data, setProgress, icon, bgcolor, topic, qNumber, length }) {
+function Question({
+  data,
+  setProgress,
+  icon,
+  bgcolor,
+  topic,
+  qNumber,
+  length,
+}) {
   function handleAnswer() {
     setProgress(true);
   }
@@ -18,15 +28,18 @@ function Question({ data, setProgress, icon, bgcolor, topic, qNumber, length }) 
       </header>
       <main>
         <section className={styles.question}>
-          <span className={styles.progressText}>Question {qNumber} of {length}</span>
+          <span className={styles.progressText}>
+            Question {qNumber} of {length}
+          </span>
           <h2 className={styles.questionText}>{data.question}</h2>
-          <span>progress bar comp</span>
-          </section>
+          <span>
+            <ProgressBarComp length={length} progress={qNumber} />
+          </span>
+        </section>
         <section>
-          {data.options[0]}
-          {data.options[1]}
-          {data.options[2]}
-          {data.options[3]}
+          {data.options.map((item) => {
+            <OptionComp option={item}></OptionComp>;
+          })}
         </section>
         <section>
           <ButtonComp onclick={handleAnswer} text="Submit Answer" />

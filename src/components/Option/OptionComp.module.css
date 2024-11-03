@@ -1,0 +1,7 @@
+.optionContainer{
+    width: 100%;
+    background-color: var(--clr-navy);
+    border-radius: 0.75rem;
+    display: flex;
+    padding: 0.5rem;
+}

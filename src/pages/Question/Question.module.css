@@ -1,14 +1,17 @@
 .question {
     color: var(--clr-pure-white);
+    margin-top: 2rem;
 }
 .progressText {
     color: var(--clr-light-blueish);
     font-size: 0.75rem;
     font-weight: 400;
     font-style: italic;
+    margin-bottom: 0.75rem;
 }
 .questionText {
     font-size: 1.25rem;
     line-height: 150%;
     font-weight: 500;
+    margin-bottom: 1.5rem;
 }
