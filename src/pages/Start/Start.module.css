@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+}
+.introduction {
+    margin-bottom: 2rem;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}

@@ -1,12 +1,15 @@
 .container {
     width: 100%;
-    box-shadow: none;
-    background-color: var(--clr-navy);
     border-radius: 0.75rem;
-    padding: 0.75rem;
+
     display: flex;
     align-items: center;
-    border-style: none;
+    justify-content: space-between;
+}
+
+.topic {
+    display: flex;
+    align-items: center;   
 }
 
 .title {

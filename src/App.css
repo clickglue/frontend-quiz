@@ -1,4 +1,5 @@
-main{
+.main{
     width: 375px;
     background-color: var(--clr-dark-navy);
+    padding: 1.5rem;
 }

@@ -1,7 +1,19 @@
-.div {
+.button {
     background-color: var(--clr-purple);
     height: 5.75rem;
     width: 100%;
     padding: 2rem;
     border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    color: var(--clr-pure-white);
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+.img {
+    display: none;
 }

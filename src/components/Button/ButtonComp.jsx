@@ -6,12 +6,12 @@ function ButtonComp({text, img, onclick}){
         onclick()
     }
     return(
-        <div className={styles.div}>
-            <button onClick={clickHandler}>
-                <p>
+        <div >
+            <button className={styles.button} onClick={clickHandler}>
+                <p className={styles.text}>
                     {text}
                 </p>
-                <img src={img} alt={`Icon ${text}`} />
+                <img className={styles.img} src={img} alt={`Icon ${text}`} />
             </button>
         </div>
     )

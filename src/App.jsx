@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Start from "./pages/start";
-import Question from "./pages/Question";
+import Start from "./pages/Start/Start";
+import Question from "./pages/Question/Question";
 import "./App.css";
 import data from "../data.json/";
 
@@ -24,8 +24,7 @@ function App() {
       setScore((prevScore) => prevScore + 1);
     }
     setProgress((prevProgress) => prevProgress + 1);
-    if (progress == length - 1) {
-      console.log("done");
+    if (progress == length) {
       setStage(2);
     }
   }
@@ -34,24 +33,34 @@ function App() {
     return set.questions[progress];
   }
 
+  function getIcon(){
+    const set = data.quizzes.find((quiz) => quiz.title === category);
+    return set.icon;
+  }
+
+  function getBgcolor(){
+    const set = data.quizzes.find((quiz) => quiz.title === category);
+    return set.bgcolor;
+  }
+
   switch (stage) {
     case 0:
       return (
-        <main>
+        <main className="main">
           <Start data={data} setCategory={setCategory_}></Start>
         </main>
       );
       break;
     case 1:
       return (
-        <main>
-          <Question data={getQuestion()} setProgress={setProgress_}></Question>
+        <main className="main">
+          <Question data={getQuestion()} setProgress={setProgress_} icon={getIcon()} bgcolor={getBgcolor()} topic={category} qNumber={progress+1} length={length}></Question>
         </main>
       );
       break;
     case 2:
       return (
-        <main>
+        <main className="main">
           <div>Score: {score}</div>
         </main>
       );
