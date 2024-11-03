@@ -1,7 +1,38 @@
 .optionContainer{
+    box-sizing: border-box;
     width: 100%;
     background-color: var(--clr-navy);
     border-radius: 0.75rem;
     display: flex;
+    align-items: center;
     padding: 0.5rem;
+    outline: none; /* Remove default outline */
+    transition: outline 0.2s;
+}
+.letterBackground{
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-light-grey);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.letter {
+    color: var(--clr-grey-navy);
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+.optionText{
+    color: white;
+    font-size: 1.125rem;
+    margin-left: 1rem;
+    text-align: left;
+
+}
+.optionContainer.selected {
+    border-color: var(--clr-purple);
+    border-style: solid;
+    border-width: 2px;
+    outline-offset: 2px;
 }

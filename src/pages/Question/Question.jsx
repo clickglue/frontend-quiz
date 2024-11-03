@@ -4,6 +4,8 @@ import HeaderComp from "../../components/Header/HeaderComp";
 import ProgressBarComp from "../../components/ProgressBar/ProgressBarComp";
 import OptionComp from "../../components/Option/OptionComp";
 
+import { useState } from "react";
+
 function Question({
   data,
   setProgress,
@@ -13,9 +15,13 @@ function Question({
   qNumber,
   length,
 }) {
+  const[selectedOption,setSelectedOption]=useState()
+
   function handleAnswer() {
     setProgress(true);
   }
+  
+  console.log(data);
   return (
     <div>
       <header>
@@ -36,11 +42,12 @@ function Question({
             <ProgressBarComp length={length} progress={qNumber} />
           </span>
         </section>
-        <section>
-          {data.options.map((item) => {
-            <OptionComp option={item}></OptionComp>;
-          })}
+        <section className={styles.options}>
+          {data.options.map((item, index) => (
+            <OptionComp key={index} option={item} id={index} />
+          ))}
         </section>
+
         <section>
           <ButtonComp onclick={handleAnswer} text="Submit Answer" />
         </section>
