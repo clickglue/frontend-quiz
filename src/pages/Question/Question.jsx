@@ -15,17 +15,23 @@ function Question({
   qNumber,
   length,
 }) {
-  const [selectedOption, setSelectedOption] = useState();
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [correctOption, setCorrectOption]=useState(1);
 
   function handleSubmit() {
-    setProgress(true);
-    setSelectedOption('');
+    if (selectedOption===null) {
+      document.getElementById("pleaseSubmit").style.display= "flex" ;
+    } else {
+      
+      setProgress(true);
+      setSelectedOption(null);
+    }
   }
   function handleAnswer(index) {
+    document.getElementById("pleaseSubmit").style.display= "none";
     setSelectedOption(index);
   }
 
-  console.log(selectedOption);
   return (
     <div>
       <header>
@@ -53,12 +59,18 @@ function Question({
               option={item}
               id={index}
               onclick={handleAnswer}
-              selected={index===selectedOption?true:false}
+              selected={index === selectedOption ? true : false}
             />
           ))}
         </section>
         <section>
           <ButtonComp onclick={handleSubmit} text="Submit Answer" />
+        </section>
+        <section>
+          <div id="pleaseSubmit" className={styles.pleaseSubmit}>
+            <img src="./assets/images/icon-incorrect.svg" alt="Icon cross" />
+            <p className={styles.pleaseSubmit__Text}>Please select an answer</p>
+          </div>
         </section>
       </main>
     </div>
