@@ -15,13 +15,17 @@ function Question({
   qNumber,
   length,
 }) {
-  const[selectedOption,setSelectedOption]=useState()
+  const [selectedOption, setSelectedOption] = useState();
 
-  function handleAnswer() {
+  function handleSubmit() {
     setProgress(true);
+    setSelectedOption('');
   }
-  
-  console.log(data);
+  function handleAnswer(index) {
+    setSelectedOption(index);
+  }
+
+  console.log(selectedOption);
   return (
     <div>
       <header>
@@ -44,12 +48,17 @@ function Question({
         </section>
         <section className={styles.options}>
           {data.options.map((item, index) => (
-            <OptionComp key={index} option={item} id={index} />
+            <OptionComp
+              key={index}
+              option={item}
+              id={index}
+              onclick={handleAnswer}
+              selected={index===selectedOption?true:false}
+            />
           ))}
         </section>
-
         <section>
-          <ButtonComp onclick={handleAnswer} text="Submit Answer" />
+          <ButtonComp onclick={handleSubmit} text="Submit Answer" />
         </section>
       </main>
     </div>
